@@ -1,0 +1,19 @@
+---
+- name: Run Docker container on remote host
+  hosts: all
+  become: true
+  tasks:
+    - name: Pull Docker image azizkhodzhaev/k8s
+      community.docker.docker_image:
+        name: azizkhodzhaev/k8s
+        source: pull
+
+    - name: Run Docker container from azizkhodzhaev/k8s image
+      community.docker.docker_container:
+        name: my_k8s_container
+        image: azizkhodzhaev/k8s
+        state: started
+        detach: yes
+        restart_policy: always
+        published_ports:
+          - "80:80"
