@@ -2,6 +2,7 @@
 - hosts: all
   become: true
   tasks:
-    - name: Print OS info
+    - name: Install httpd package
       ansible.builtin.package:
         name: httpd
+        state: present
