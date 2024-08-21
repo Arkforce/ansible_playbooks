@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install httpd package
+      ansible.builtin.package:
+        name: httpd
+        state: absent
