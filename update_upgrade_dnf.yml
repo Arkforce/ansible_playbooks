@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Update all packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+    - name: Upgrade the system (apply updates)
+      ansible.builtin.dnf:
+        name: "@System"
+        state: latest
+
+    - name: Clean up the package cache
+      ansible.builtin.dnf:
+        command: dnf clean all
