@@ -6,3 +6,9 @@
       ansible.builtin.package:
         name: httpd
         state: present
+
+    - name: Ensure httpd service is started and enabled
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
