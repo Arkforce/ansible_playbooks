@@ -1,0 +1,17 @@
+name: Test pipeline
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  initial_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: First step
+      run: |
+        echo First
+        echo Two
+        touch three.txt
